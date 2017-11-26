@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="ru">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <title>Title</title>
+</head>
+<body>
+<div>
+    <form action="#" th:action="@{/countries/add/submit}" th:object="${country}" method="post">
+            <p>
+                Название
+                <input type="text" th:field="*{name}"/>
+            </p>
+
+        <button type="submit">Сохранить</button>
+    </form>
+</div>
+</body>
+</html>

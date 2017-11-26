@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="ru">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <title>Edit country</title>
+</head>
+<body>
+<div>
+    <form action="#" th:action="@{/countries/edit/submit}" th:object="${item}" method="post">
+        <input type="hidden" th:field="*{id}" th:value="${id}" />
+        <p>
+            Название
+            <input type="text" th:field="*{codeName} "th:value="${codeName}"/>
+        </p>
+        <p>
+            Название
+            <input type="text" th:field="*{password}" th:value="${password}"/>
+        </p>
+        <p>
+            Название
+            <input type="text" th:field="*{role}" th:value="${role}"/>
+        </p>
+        <p>
+            Название
+            <input type="checkbox" th:field="*{status}" th:value="${status}"/>
+        </p>
+        <p>
+            <select th:field="*{countryByCountryId}">
+                <option th:each="country : ${countries}" th:value="${country.id}" th:text="${country.name}"></option>
+            </select>
+        </p>
+        <p>
+            Название
+            <input type="text" th:field="*{name}" th:value="${name}"/>
+        </p>
+
+        <button type="submit">Сохранить</button>
+    </form>
+</div>
+</body>
+</html>

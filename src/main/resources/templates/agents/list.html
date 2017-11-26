@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="ru"  xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <title>Title</title>
+</head>
+<body>
+<div>
+    <table>
+        <tr>
+            <th>Id</th>
+            <th>Code Name</th>
+            <th>Password</th>
+            <th>Role</th>
+            <th>Status</th>
+            <th>Country</th>
+            <th colspan="2">Operations</th>
+        </tr>
+
+        <tr th:each="agent : ${agents}">
+            <td th:text="${agent.id}"/>
+            <td th:text="${agent.codeName}"/>
+            <td th:text="${agent.password}"/>
+            <td th:text="${agent.role}"/>
+            <td th:text="${agent.status}"/>
+            <td th:text="${agent.countryByCountryId.name}"/>
+            <td ><a th:href="@{'/countries/delete/' + ${agent.id}}">Delete</a></td>
+            <td ><a th:href="@{'/countries/edit/' + ${agent.id}}">Edit</a></td>
+        </tr>
+
+    </table>
+</div>
+</body>
+</html>

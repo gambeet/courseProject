@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="ru"  xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <title>Title</title>
+</head>
+<body>
+<div>
+    <table>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th colspan="2">Operations</th>
+        </tr>
+
+        <tr th:each="country : ${countries}">
+            <td th:text="${country.id}"/>
+            <td th:text="${country.name}"/>
+            <td ><a th:href="@{'/countries/delete/' + ${country.id}}">Delete</a></td>
+            <td ><a th:href="@{'/countries/edit/' + ${country.id}}">Edit</a></td>
+        </tr>
+
+    </table>
+</div>
+</body>
+</html>
