@@ -11,7 +11,7 @@
     <properties>
         <project.java.version>1.8</project.java.version>
         <project.encoding>UTF-8</project.encoding>
-        <spring.version>1.5.4.RELEASE</spring.version>
+        <spring.version>1.5.8.RELEASE</spring.version>
     </properties>
 
     <dependencies>
@@ -26,6 +26,11 @@
             <artifactId>spring-boot-starter-thymeleaf</artifactId>
             <version>${spring.version}</version>
         </dependency>
+        <dependency>
+            <groupId>org.thymeleaf.extras</groupId>
+            <artifactId>thymeleaf-extras-java8time</artifactId>
+            <version>2.1.0.RELEASE</version>
+        </dependency>
 
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -38,11 +43,17 @@
             <version>5.1.43</version>
         </dependency>
 
-        <!--<dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-devtools</artifactId>
+            <version>${spring.version}</version>
+            <optional>true</optional>
+        </dependency>
+        <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-security</artifactId>
             <version>${spring.version}</version>
-        </dependency>-->
+        </dependency>
     </dependencies>
 
     <build>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="ru"  xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <title>Title</title>
+</head>
+<body>
+<div>
+    <table>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Agent</th>
+            <th>Country</th>
+            <th colspan="2">Operations</th>
+        </tr>
+
+        <tr th:each="doc : ${stolendocs}">
+            <td th:text="${doc.id}"/>
+            <td th:text="${doc.name}"/>
+            <td th:text="${doc.agentByAgentId.codeName}"/>
+            <td th:text="${doc.countryByCountryId.name}"/>
+            <td ><a th:href="@{'/stolendocs/delete/' + ${doc.id}}">Delete</a></td>
+            <td ><a th:href="@{'/stolendocs/edit/' + ${doc.id}}">Edit</a></td>
+        </tr>
+
+    </table>
+</div>
+</body>
+</html>

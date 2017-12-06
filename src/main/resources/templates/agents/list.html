@@ -1,11 +1,26 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" lang="ru"  xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<html xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:th="http://www.thymeleaf.org" lang="ru"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <title>Title</title>
 </head>
 <body>
 <div>
+
+
+        <!--<div class="container">-->
+            <!---->
+                <!--&lt;!&ndash; this is footer &ndash;&gt;-->
+                <!--© 2017 mkyong.com-->
+                <!--<span sec:authorize="isAuthenticated()">-->
+                <!--| Logged user: <span sec:authentication="name"></span> |-->
+                <!--Roles: <span sec:authentication="principal.authorities"></span> |-->
+                <!--<a th:href="@{/logout}">Sign Out</a>-->
+            <!--</span>-->
+
+    <!--</div>-->
     <table>
         <tr>
             <th>Id</th>
@@ -24,8 +39,8 @@
             <td th:text="${agent.role}"/>
             <td th:text="${agent.status}"/>
             <td th:text="${agent.countryByCountryId.name}"/>
-            <td ><a th:href="@{'/countries/delete/' + ${agent.id}}">Delete</a></td>
-            <td ><a th:href="@{'/countries/edit/' + ${agent.id}}">Edit</a></td>
+            <td ><a th:href="@{'/agents/delete/' + ${agent.id}}">Delete</a></td>
+            <td ><a th:href="@{'/agents/edit/' + ${agent.id}}">Edit</a></td>
         </tr>
 
     </table>

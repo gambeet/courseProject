@@ -6,23 +6,19 @@
 </head>
 <body>
 <div>
-    <form action="#" th:action="@{/agents/add/submit}" th:object="${agent}" method="post">
+    <form action="#" th:action="@{/stolendocs/add/submit}" th:object="${stolendoc}" method="post">
         <p>
-            Code Name
-            <input type="text" th:field="*{codeName}"/>
+            Name
+            <input type="text" th:field="*{name}"/>
         </p>
+
+        Agent
         <p>
-            Password
-            <input type="text" th:field="*{password}"/>
+            <select th:field="*{agentByAgentId}">
+                <option th:each="agent : ${agents}" th:value="${agent.id}" th:text="${agent.codeName}"></option>
+            </select>
         </p>
-        <p>
-            Role
-            <input type="text" th:field="*{role}" th:value="agent"/>
-        </p>
-        <p>
-            Status
-            <input type="checkbox" th:field="*{status}"/>
-        </p>
+
         Country
         <p>
             <select th:field="*{countryByCountryId}">

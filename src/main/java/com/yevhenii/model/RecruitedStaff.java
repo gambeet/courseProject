@@ -1,8 +1,10 @@
 package com.yevhenii.model;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import javax.persistence.*;
-import java.sql.Date;
 import java.util.Collection;
+import java.sql.Date;
 
 /**
  * Created by Yevhenii on 26.11.2017.
@@ -11,8 +13,8 @@ import java.util.Collection;
 @Table(name = "recruited_staff", schema = "espionageAgency", catalog = "")
 public class RecruitedStaff {
     private int id;
-    private Date birthDate;
-    private String fullName;
+    private Date date;
+    private String name;
     private String sex;
     private Collection<AgentToStaff> agentToStaffsById;
     private Country countryByCountryId;
@@ -29,22 +31,22 @@ public class RecruitedStaff {
 
     @Basic
     @Column(name = "birth_date")
-    public Date getBirthDate() {
-        return birthDate;
+    public Date getDate() {
+        return date;
     }
 
-    public void setBirthDate(Date birthDate) {
-        this.birthDate = birthDate;
+    public void setDate(Date date) {
+        this.date = date;
     }
 
     @Basic
     @Column(name = "full_name")
-    public String getFullName() {
-        return fullName;
+    public String getName() {
+        return name;
     }
 
-    public void setFullName(String fullName) {
-        this.fullName = fullName;
+    public void setName(String name) {
+        this.name = name;
     }
 
     @Basic
@@ -65,8 +67,8 @@ public class RecruitedStaff {
         RecruitedStaff that = (RecruitedStaff) o;
 
         if (id != that.id) return false;
-        if (birthDate != null ? !birthDate.equals(that.birthDate) : that.birthDate != null) return false;
-        if (fullName != null ? !fullName.equals(that.fullName) : that.fullName != null) return false;
+        if (date != null ? !date.equals(that.date) : that.date != null) return false;
+        if (name != null ? !name.equals(that.name) : that.name != null) return false;
         if (sex != null ? !sex.equals(that.sex) : that.sex != null) return false;
 
         return true;
@@ -75,8 +77,8 @@ public class RecruitedStaff {
     @Override
     public int hashCode() {
         int result = id;
-        result = 31 * result + (birthDate != null ? birthDate.hashCode() : 0);
-        result = 31 * result + (fullName != null ? fullName.hashCode() : 0);
+        result = 31 * result + (date != null ? date.hashCode() : 0);
+        result = 31 * result + (name != null ? name.hashCode() : 0);
         result = 31 * result + (sex != null ? sex.hashCode() : 0);
         return result;
     }

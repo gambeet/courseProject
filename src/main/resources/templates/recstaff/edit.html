@@ -6,24 +6,24 @@
 </head>
 <body>
 <div>
-    <form action="#" th:action="@{/agents/edit/submit}" th:object="${item}" method="post">
+    <form action="#" th:action="@{/recstaff/edit/submit}" th:object="${item}" method="post">
         <input type="hidden" th:field="*{id}" th:value="${id}" />
         <p>
-            Code Name
-            <input type="text" th:field="*{codeName}" th:value="${codeName}"/>
+            Full name
+            <input type="text" th:field="*{name}"/>
+        </p>
+        Birthdate
+        <p>
+            <input type="date" th:field="*{date}"/>
         </p>
         <p>
-            Password
-            <input type="text" th:field="*{password}" th:value="${password}"/>
+            <select th:field="*{sex}">
+                <option th:value="M" th:text="M"></option>
+                <option th:value="F" th:text="F"></option>
+            </select>
         </p>
-        <p>
-            Role
-            <input type="text" th:field="*{role}" th:value="${role}"/>
-        </p>
-        <p>
-            Status
-            <input type="checkbox" th:field="*{status}" th:value="${status}"/>
-        </p>
+
+        Country
         <p>
             <select th:field="*{countryByCountryId}">
                 <option th:each="country : ${countries}" th:value="${country.id}" th:text="${country.name}"></option>

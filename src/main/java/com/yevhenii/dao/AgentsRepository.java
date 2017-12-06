@@ -9,4 +9,8 @@ import org.springframework.stereotype.Repository;
  */
 @Repository
 public interface AgentsRepository extends CrudRepository<Agent, Integer> {
+
+    //@Transactional
+    //@Query(value = "select a from Agent a where a.codeName = ?1")
+    Agent findByCodeName(String codeName);
 }

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="ru">
+<head>
+    <meta charset="UTF-8"></meta>
+    <title>Add doc</title>
+</head>
+<body>
+<div>
+    <form action="#" th:action="@{/me/addDoc/submit}" th:object="${item}" method="post">
+        <p>
+            Name
+            <input type="text" th:field="*{name}"/>
+        </p>
+
+        Country
+        <p>
+            <select th:field="*{countryByCountryId}">
+                <option th:each="country : ${countries}" th:value="${country.id}" th:text="${country.name}"></option>
+            </select>
+        </p>
+        <button type="submit">Сохранить</button>
+    </form>
+</div>
+</body>
+</html>

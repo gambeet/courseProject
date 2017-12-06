@@ -1,8 +1,8 @@
 package com.yevhenii.sevice;
 
 import com.yevhenii.dao.AgentsRepository;
-import com.yevhenii.model.Agent;
-import com.yevhenii.model.Country;
+import com.yevhenii.dao.StolenDocumentsRepository;
+import com.yevhenii.model.StolenDocument;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -13,19 +13,18 @@ import java.util.stream.Collectors;
 import java.util.stream.StreamSupport;
 
 /**
- * Created by Yevhenii on 26.11.2017.
+ * Created by Yevhenii on 28.11.2017.
  */
 @Service
-public class AgentsService {
-
+public class StolenDocumentsService {
     @Autowired
-    private AgentsRepository repository;
+    private StolenDocumentsRepository repository;
 
-    public void save(Agent item) {
+    public void save(StolenDocument item) {
         repository.save(item);
     }
 
-    public List<Agent> getAll() {
+    public List<StolenDocument> getAll() {
         return StreamSupport
                 .stream(
                         Spliterators.spliteratorUnknownSize(repository.findAll().iterator(), Spliterator.NONNULL),
@@ -37,15 +36,11 @@ public class AgentsService {
         repository.delete(id);
     }
 
-    public void update(Agent item){
+    public void update(StolenDocument item){
         repository.save(item);
     }
 
-    public Agent getById(int id){
+    public StolenDocument getById(int id){
         return repository.findOne(id);
-    }
-
-    public Agent getByCodeName(String codeName){
-        return repository.findByCodeName(codeName);
     }
 }

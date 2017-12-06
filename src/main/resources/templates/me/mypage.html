@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="ru">
+<head>
+    <meta charset="UTF-8"></meta>
+    <title>Title</title>
+</head>
+<body>
+    <div>
+        <h2 th:text="'This page of user ' + ${agent.codeName}"></h2>
+    </div>
+    <div><a th:href="@{'/me/declassified/'}">I'm declassified(save me)</a></div>
+<div>
+    <div th:if="${agent.status}">
+        <div>Extremely dangerous message!!! If you see this message, then death is close)</div>
+    </div>
+    <div th:unless="${agent.status}">
+        <div th:text=" 'Ok, ' + ${agent.codeName} + '. No need to worry'"></div>
+    </div>
+</div>
+
+    <div>
+        <table>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Agent</th>
+                <th>Country</th>
+                <th colspan="2">Operations</th>
+            </tr>
+
+            <tr th:each="doc : ${myDocs}">
+                <td th:text="${doc.id}"/>
+                <td th:text="${doc.name}"/>
+                <td th:text="${doc.agentByAgentId.codeName}"/>
+                <td th:text="${doc.countryByCountryId.name}"/>
+                <td ><a th:href="@{'/stolendocs/delete/' + ${doc.id}}">Delete</a></td>
+                <td ><a th:href="@{'/stolendocs/edit/' + ${doc.id}}">Edit</a></td>
+            </tr>
+
+        </table>
+    </div>
+    <div>
+        <table>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Birthdate</th>
+                <th>Sex</th>
+                <th>Country</th>
+                <th colspan="2">Operations</th>
+            </tr>
+
+            <tr th:each="staff : ${myStaffs}">
+                <td th:text="${staff.recruitedStaffByStaffId.id}"/>
+                <td th:text="${staff.recruitedStaffByStaffId.name}"/>
+                <td th:text="${staff.recruitedStaffByStaffId.date}"/>
+                <td th:text="${staff.recruitedStaffByStaffId.sex}"/>
+                <td th:text="${staff.recruitedStaffByStaffId.countryByCountryId.name}"/>
+                <td ><a th:href="@{'/me/deleteStaff/' + ${staff.id}}">Delete</a></td>
+            </tr>
+
+        </table>
+    </div>
+</body>
+</html>

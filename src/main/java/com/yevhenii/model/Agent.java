@@ -28,7 +28,7 @@ public class Agent {
     }
 
     @Basic
-    @Column(name = "code_name")
+    @Column(name = "code_name", unique = true)
     public String getCodeName() {
         return codeName;
     }
@@ -119,5 +119,16 @@ public class Agent {
 
     public void setStolenDocumentsById(Collection<StolenDocument> stolenDocumentsById) {
         this.stolenDocumentsById = stolenDocumentsById;
+    }
+
+    @Override
+    public String toString() {
+        return "Agent{" +
+                "id=" + id +
+                ", codeName='" + codeName + '\'' +
+                ", role='" + role + '\'' +
+                ", status=" + status +
+                ", country=" + countryByCountryId.getName() +
+                '}';
     }
 }

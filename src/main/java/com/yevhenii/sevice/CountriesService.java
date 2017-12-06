@@ -16,8 +16,8 @@ public class CountriesService {
     @Autowired
     private CountriesRepository repository;
 
-    public void save(Country country) {
-        repository.save(country);
+    public void save(Country item) {
+        repository.save(item);
     }
 
     public List<Country> getAll() {
@@ -32,8 +32,8 @@ public class CountriesService {
         repository.delete(id);
     }
 
-    public void update(Country country){
-        repository.save(country);
+    public void update(Country item){
+        repository.save(item);
     }
 
     public Country getById(int id){

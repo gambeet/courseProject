@@ -10,7 +10,4 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface CountriesRepository extends JpaRepository <Country, Integer> {
-    @Modifying
-    @Query("UPDATE Country c SET c.name = :name WHERE c.id = :countryId")
-    int update(@Param("countryId") int countryId, @Param("name") String name);
 }
