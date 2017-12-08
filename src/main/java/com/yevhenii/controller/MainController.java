@@ -46,8 +46,8 @@ public class MainController {
 
     @RequestMapping(value = "/403", method = RequestMethod.GET)
     public String error403(Model model, Authentication authentication) {
-//        model.addAttribute("role", authentication.getAuthorities());
-//        model.addAttribute("user", authentication.getName());
+        model.addAttribute("role", authentication.getAuthorities());
+        model.addAttribute("user", authentication.getName());
         return "/error/403";
     }
 

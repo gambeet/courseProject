@@ -5,7 +5,8 @@
     <title>Add staff</title>
 </head>
 <body>
-<p>Add new staff, and choose it later</p>
+
+<p>Add new staff, and recruit it later.</p>
 <div>
     <form action="#" th:action="@{/me/addStaff/submit}" th:object="${newStaff}" method="post">
         <p>
@@ -32,7 +33,7 @@
         <button type="submit">Сохранить</button>
     </form>
 </div>
-<p>Or choose from list</p>
+<p>Choose from list</p>
 <div>
     <table>
         <tr>
@@ -50,7 +51,7 @@
             <td th:text="${staff.date}"/>
             <td th:text="${staff.sex}"/>
             <td th:text="${staff.countryByCountryId.name}"/>
-            <td ><a th:href="@{'/me/addStaff/submit/' + ${staff.id}}">Choose</a></td>
+            <td ><a th:href="@{'/me/addStaff/submit/' + ${staff.id}}">Recruit</a></td>
         </tr>
 
     </table>

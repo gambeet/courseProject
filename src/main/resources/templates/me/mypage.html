@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" lang="ru">
+<html xmlns:th="http://www.thymeleaf.org" lang="ru"
+xmlns:sec="http://www.springframework.org/security/tags">
 <head>
     <meta charset="UTF-8"></meta>
     <title>Title</title>
@@ -40,6 +41,11 @@
         </table>
     </div>
     <div>
+        <div th:if="${param.staff8error}">
+            <div>
+                You can`t to recruite ne staff, cause you have more than 8 staff. Please, remove one recruit from list and try again.
+            </div>
+        </div>
         <table>
             <tr>
                 <th>Id</th>
@@ -60,6 +66,10 @@
             </tr>
 
         </table>
+    </div>
+    <div sec:authorize="hasRole('ROLE_ADMIN')">
+        This content is only shown to administrators.
+        <!--Admin links-->
     </div>
 </body>
 </html>

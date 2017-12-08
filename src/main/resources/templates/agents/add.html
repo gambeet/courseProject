@@ -1,10 +1,16 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" lang="ru">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml" lang="ru">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <title>Title</title>
 </head>
 <body>
+<div sec:authorize="isAuthenticated()">
+    sdafghjklk
+</div>
+<div sec:authorize="isAnonymous()">
+Suka
+</div>
 <div>
     <form action="#" th:action="@{/agents/add/submit}" th:object="${agent}" method="post">
         <p>
@@ -17,7 +23,11 @@
         </p>
         <p>
             Role
-            <input type="text" th:field="*{role}" th:value="agent"/>
+            <select th:field="*{role}">
+                <option  th:value="ROLE_AGENT" th:text="ROLE_AGENT"></option>
+                <option  th:value="ROLE_ADMIN" th:text="ROLE_ADMIN"></option>
+            </select>
+            <!--<input type="text" th:field="*{role}" th:value="agent"/>-->
         </p>
         <p>
             Status

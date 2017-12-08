@@ -72,6 +72,9 @@ public class AgentToStaffController {
 
     @RequestMapping(value = "/addStaff/submit/{id}", method = RequestMethod.GET)
     public String submitAddExistStaff(@PathVariable int id, Authentication authentication) {
+        if(agentsService.getByCodeName(authentication.getName()).getAgentToStaffsById().size() >= 3){
+            return "redirect:../../?staff8error";
+        }
         AgentToStaff agentToStaff = new AgentToStaff();
         agentToStaff.setAgentByAgentId(agentsService.getByCodeName(authentication.getName()));
         agentToStaff.setRecruitedStaffByStaffId(recruitedStaffService.getById(id));

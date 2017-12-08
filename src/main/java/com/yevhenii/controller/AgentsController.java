@@ -6,6 +6,7 @@ import com.yevhenii.sevice.AgentsService;
 import com.yevhenii.sevice.CountriesService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -24,6 +25,8 @@ public class AgentsController {
     @Autowired
     private CountriesService countriesService;
 
+    private BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
+
     @RequestMapping
     public String mainPage(Model model){
         model.addAttribute("agents", agentsService.getAll());
@@ -38,6 +41,7 @@ public class AgentsController {
     }
     @RequestMapping(value = "/add/submit", method = RequestMethod.POST)
     public String submitAdd(@ModelAttribute Agent item){
+        item.setPassword(encoder.encode(item.getPassword()));
         agentsService.save(item);
         return "redirect:../";
     }
