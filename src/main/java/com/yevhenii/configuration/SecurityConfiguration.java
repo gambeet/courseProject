@@ -36,11 +36,11 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .authorizeRequests()
                 .antMatchers("/countries/**").access("hasRole('ROLE_ADMIN')")
 //              "hasRole('ROLE_ADMIN') or hasRole('ROLE_AGENT')"
-//                .antMatchers("/agents/**").access("hasRole('ROLE_ADMIN')")
+                .antMatchers("/agents/**").access("hasRole('ROLE_ADMIN')")
                 .antMatchers("/stolendocs/**").access("hasRole('ROLE_ADMIN')")
                 .antMatchers("/countries/**").access("hasRole('ROLE_ADMIN')")
                 .antMatchers("/").permitAll()
-//                .anyRequest().authenticated()
+                .anyRequest().authenticated()
                 .and()
                 .formLogin().loginPage("/login").defaultSuccessUrl("/me").permitAll()
                 .and()
