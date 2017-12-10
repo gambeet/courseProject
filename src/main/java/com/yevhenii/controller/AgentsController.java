@@ -32,6 +32,11 @@ public class AgentsController {
         model.addAttribute("agents", agentsService.getAll());
         return "agents/list";
     }
+    @RequestMapping("/top10")
+    public String top10(Model model){
+        model.addAttribute("agents", agentsService.getTop10());
+        return "agents/top10";
+    }
 
     @RequestMapping("/add")
     public String addPage(Model model){
