@@ -32,6 +32,13 @@ public class AgentsService {
                         false)
                 .collect(Collectors.toList());
     }
+    public List<Agent> getTop10() {
+        return StreamSupport
+                .stream(
+                        Spliterators.spliteratorUnknownSize(repository.findTop10Agents().iterator(), Spliterator.NONNULL),
+                        false)
+                .collect(Collectors.toList());
+    }
 
     public void delete(int id){
         repository.delete(id);

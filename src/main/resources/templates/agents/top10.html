@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org" lang="ru"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <title>Title</title>
+</head>
+<body>
+<div>
+    <table>
+        <tr>
+            <th>Id</th>
+            <th>Code Name</th>
+            <th>Password</th>
+            <th>Role</th>
+            <th>Status</th>
+            <th>Country</th>
+            <th>Docs count</th>
+        </tr>
+
+        <tr th:each="agent : ${agents}">
+            <td th:text="${agent.id}"/>
+            <td th:text="${agent.codeName}"/>
+            <td th:text="${agent.password}"/>
+            <td th:text="${agent.role}"/>
+            <td th:text="${agent.status}"/>
+            <td th:text="${agent.countryByCountryId.name}"/>
+            <td th:text="${#lists.size(agent.stolenDocumentsById)}"></td>
+        </tr>
+
+    </table>
+</div>
+</body>
+</html>
