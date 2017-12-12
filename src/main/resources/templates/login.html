@@ -1,28 +1,140 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" lang="ru">
-
-<head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"></meta>
-    <title>Auth page</title>
+<html xmlns:th="http://www.thymeleaf.org" lang="ua"><head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+		<title>Сторінка авторизації</title>
+		
+		<link href="css\shared.css" rel="stylesheet" type="text/css">
+		<link href="css\Site.css" rel="stylesheet" type="text/css">
+			
+			
 </head>
-<body>
+    <body>
+
+	<br>
+	<div class="box-wrapper">
+
+		<header>
+			<div class="content-wrapper">				
+				<table width="100%" cellspacing="0" cellpadding="0" border="0">
+				<tbody><tr><td>
+				
+					<table cellspacing="10" cellpadding="0" border="0"><tbody><tr><td>
+					<a href="http://www.perkley.com/"><img class="no-border" src="images\log.gif" ></a></td>
+					<td> &nbsp;&nbsp;
+					</td>
+					<td style="padding-left:20px;" class="logo-area">СТОРІНКА АВТОРИЗАЦІЇ СЕКРЕТНОГО АГЕНТА</td>
+					
+		
+		
+					</tr></tbody></table>
+
+				</td><td align="right">
 
 
-<form th:action="@{/login}" method="post">
-    <h2>Enter auth data</h2>
-    <div th:if="${param.error}">
+				
+				<table cellspacing="10" cellpadding="0" border="0">
+				
+					
+					
+					
+
+					<tbody><tr><td id="menutable" nowrap="nowrap"><a href="https://www.perkley.com/spy-resources/" class="menu">SPY RESOURCES</a></td>
+					<td id="menutable"><a href="https://www.perkley.com/parents/" class="menu">PARENTS</a></td>
+					
+						<td id="menutable"><a href="https://www.perkley.com/shop/" class="menu">SHOP</a></td>
+					
+
+					
+							<td>
+							
+							<a href="th:href="@{'/logout'}"" class="menu-backoffice"><img class="no-border" th:src="@{/templates.images/agents-only.gif}" alt="Agents Only Back Office"></a>
+						
+					</td>
+					
+				
+				</tr></tbody></table>
+				
+
+
+
+				</td></tr></tbody></table>
+				
+
+			</div>
+		</header>
+
+		<div id="body">
+		
+<section class="content-wrapper main-content clear-fix">
+<div class="login-bg">
+	<form th:action="@{/login}" method="post" style="display:inline;">
+	<table cellspacing="0" cellpadding="5" border="0">
+	<tbody>
+	
+		<td><img src="images/spacer.gif" width="50" height="364"></td>
+		<td align="center">
+
+		<br>
+<table align="center" cellspacing="0" cellpadding="3" border="0">
+<tbody><tr>
+<h2>Введіть дані</h2>
+	<td>
+	Ім'я агента:<br><input id="username"  name="username" placeholder="логін" required="required" style="width:150px;" type="text"></td></tr>
+<tr>
+	<td>Код агента:<br><input id="password"  name="password" placeholder="код" required="required" style="width:150px;" type="Password"></td></tr>
+
+	<td align="left"><input value="Ввести"   style="font-size:12px;" class="ui-button ui-widget ui-state-default ui-corner-all" role="button" type="submit"></td></tr>
+</tbody></table>
+
+	</td>
+	<td><img src="images/spacer.gif" width="150" height="1"></td><td><img src="images\fingerprint_scan_animation.gif" alt="" width="139" height="169" border="0"></td>
+
+</tbody></table>
+</form>
+<div th:if="${param.error}">
         <div>
-            You entered wrong auth data or you were declassified!
+            Введено невірні дані<br> або вас викрито!
         </div>
     </div>
-    <input id="username" type="text" name="username" placeholder="login" required="required"/>
-    <br/>
-    <input id="password" type="password" name="password" placeholder="пароль" required="required"/>
-    <br/>
-    <div>
-        <button type="submit">Войти</button>
-    </div>
-</form>
 
-</body>
-</html>
+
+</div>
+
+<script language="JavaScript">
+<!--
+document.password.UserName.focus();
+// -->
+</script>
+</section>
+
+</div>
+
+
+		<footer>
+			<div class="content-wrapper">
+		
+		<table width="100%" border="0">
+		<tbody>
+		<tr><td>
+		<a href="http://www.perkley.com/privacy-policy" class="colorGreen" style="text-decoration:none;" title="Read Privacy Policy" target="_blank">Privacy Policy</a>  | 
+		<a href="http://www.perkley.com/terms-of-use/" class="footer" title="Terms of Use" target="_blank">Terms Of Use</a> | 
+		<a href="https://www.perkley.com/contact/" class="footer" title="Contact Us">Contact Us</a>  
+		|  All rights reserved - Perkley, LLC. © 2012-2017</td>
+</tr></tbody></table>
+
+				
+			</div> 
+		</footer>
+    	
+	</div> 
+<img src="Perkley%20-%20Back%20Office_files/spacer.gif" width="1" height="10">
+    
+
+
+
+	
+
+<div role="log" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div>
+<div role="log" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div>
+<div role="log" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible">
+</div></body></html>

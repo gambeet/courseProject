@@ -1,0 +1,87 @@
+a {
+    color: #fffff;
+    outline: none;
+    padding-left: 3px;
+    padding-right: 3px;
+    text-decoration: underline;
+}
+
+.footprints {
+    position: absolute;
+    top:0px;
+}
+
+.box-wrapper {
+	/*margin-top:20px;*/
+	width:966px;
+	background-color:#626262;
+	border:4px double black;
+	margin: 0 auto;
+    max-width: 966px;
+	-moz-border-radius: 8px;
+	border-radius: 8px;
+}
+
+.content-wrapper {
+	background-color:black;
+
+     
+}
+    .main-content {
+
+		padding:10px;
+    }
+
+    .description {
+        background-color:#333;
+		color:white;
+		margin:10px;
+		-moz-border-radius: 8px;
+		border-radius: 8px;
+		padding:10px;
+		font-family: "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Arial, Helvetica, sans-serif;
+		font-size:1em;
+    }
+
+.logo-area {
+
+	vertical-align:middle;
+	font: 16px courier,"courier new",monospace;
+	color:white;
+	
+}
+.menu-area {
+	float:right;
+	color:white;
+ 
+}
+.menu-area #menutable {
+
+	font-size:14px;
+}
+
+#menutable {
+	width:80px;
+	text-align:center;
+	white-space: nowrap;
+}
+
+
+.clear-area {
+	clear:both;
+}
+
+.login-bg {
+    background-color: #000;
+    background-image: url("../images/login-security.jpg");
+	background-repeat:no-repeat;
+	background-position:center;
+	margin-left:auto;
+	margin-right:auto;
+	width:862px;
+}
+
+
+
+
+

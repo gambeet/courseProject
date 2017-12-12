@@ -1,35 +1,114 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:th="http://www.thymeleaf.org" lang="ru"
+      xmlns:th="http://www.thymeleaf.org" lang="ua"
       xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-    <title>Title</title>
-</head>
-<body>
-<div>
-    <table>
-        <tr>
-            <th>Id</th>
-            <th>Code Name</th>
-            <th>Password</th>
-            <th>Role</th>
-            <th>Status</th>
-            <th>Country</th>
-            <th>Docs count</th>
-        </tr>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
-        <tr th:each="agent : ${agents}">
+
+		<title>Топ 10</title>
+		
+		<link href="../css/shared.css" rel="stylesheet" type="text/css">
+		<link href="../css/Site.css" rel="stylesheet" type="text/css">
+
+</head>
+    <body>
+
+
+	
+	<br>
+	<div class="box-wrapper">
+
+		<header>
+			<div class="content-wrapper">
+				
+				
+				<table width="100%" cellspacing="0" cellpadding="0" border="0">
+				<tbody><tr><td>
+
+					
+					<table cellspacing="10" cellpadding="0" border="0"><tbody><tr><td><a href="http://www.perkley.com/"><img class="no-border" src="../images/log.gif" ></a></td><td> &nbsp;&nbsp;
+					</td><td style="padding-left:20px;" class="logo-area"></td>
+					
+					</tr></tbody></table>
+
+				</td><td align="right">
+
+				<table cellspacing="10" cellpadding="0" border="0">
+				
+					<tbody><tr><td id="menutable" nowrap="nowrap"><a href="http://www.perkley.com/spy-resources/" class="menu">SPY RESOURCES</a></td>
+					<td id="menutable"><a href="http://www.perkley.com/parents/" class="menu">PARENTS</a></td>
+					
+						<td id="menutable"><a href="http://www.perkley.com/shop/" class="menu">SHOP</a></td>
+					
+
+					
+							<td>
+							
+							<a href="th:href="@{'/logout'}"" class="menu-backoffice"><img class="no-border" src="../images/agents-only.gif" alt="Agents Only Back Office"></a>
+						
+					</td>
+					
+				
+				</tr></tbody></table>
+				
+				</td></tr></tbody></table>
+				
+
+			</div>
+		</header>
+
+		<div id="body">
+
+			<section class="content-wrapper main-content clear-fix">
+				
+				
+<div class="description">
+<h1 align="center">Список агентів топ 10</h1>
+<br>
+<table width="100%" cellspacing="10" cellpadding="0" border="1" align="center" style="border-collapse: collapse;" >
+<tbody>
+<tr>
+           <th>Ід</th>
+             <th>Кодове Ім'я</th>
+             <th>Роль</th>
+            <th>Статус</th>
+            <th>Країна</th>
+			<th width="200">Кількість документів</th>
+            
+        </tr>
+			<tr th:each="agent : ${agents}">
             <td th:text="${agent.id}"/>
             <td th:text="${agent.codeName}"/>
-            <td th:text="${agent.password}"/>
             <td th:text="${agent.role}"/>
             <td th:text="${agent.status}"/>
             <td th:text="${agent.countryByCountryId.name}"/>
             <td th:text="${#lists.size(agent.stolenDocumentsById)}"></td>
         </tr>
+        </tr>
+</tbody></table>
 
-    </table>
 </div>
-</body>
-</html>
+
+			</section>
+
+		</div>
+		<footer>
+			<div class="content-wrapper">
+				
+					 <table width="100%" border="0"><tbody><tr><td><a href="http://www.perkley.com/privacy-policy" class="colorGreen" style="text-decoration:none;" title="Read Privacy Policy" target="_blank">Privacy Policy</a>  | <a href="http://www.perkley.com/terms-of-use/" class="footer" title="Terms of Use" target="_blank">Terms Of Use</a> | <a href="http://www.perkley.com/contact/" class="footer" title="Contact Us">Contact Us</a>  |  All rights reserved - Perkley, LLC. © 2012-2017</td>
+</tr></tbody></table>
+
+				
+			</div> 
+		</footer>
+    	
+	</div> 
+<img src="images/spacer.gif" width="1" height="10">
+    
+
+
+	
+
+<div role="log" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div>
+<div role="log" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div><div role="log" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div></body></html>

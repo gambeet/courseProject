@@ -2,31 +2,89 @@
 <html xmlns:th="http://www.thymeleaf.org" lang="ru"
 xmlns:sec="http://www.springframework.org/security/tags">
 <head>
-    <meta charset="UTF-8"></meta>
-    <title>Title</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+
+		<title>Приватна сторінка</title>
+		
+		<link href="../css/shared.css" rel="stylesheet" type="text/css">
+		<link href="../css/Site.css" rel="stylesheet" type="text/css">
+
 </head>
-<body>
-    <div>
+    <body>
+
+
+	
+	<br>
+	<div class="box-wrapper">
+
+		<header>
+			<div class="content-wrapper">
+				
+				
+				<table width="100%" cellspacing="0" cellpadding="0" border="0">
+				<tbody><tr><td>
+
+					
+					<table cellspacing="10" cellpadding="0" border="0"><tbody><tr><td><a href="http://www.perkley.com/"><img class="no-border" src="../images/log.gif" ></a></td><td> &nbsp;&nbsp;
+					</td><td style="padding-left:20px;" class="logo-area"></td>
+					
+					</tr></tbody></table>
+
+				</td><td align="right">
+
+				<table cellspacing="10" cellpadding="0" border="0">
+				
+					<tbody><tr><td id="menutable" nowrap="nowrap"><a href="http://www.perkley.com/spy-resources/" class="menu">SPY RESOURCES</a></td>
+					<td id="menutable"><a href="http://www.perkley.com/parents/" class="menu">PARENTS</a></td>
+					
+						<td id="menutable"><a href="http://www.perkley.com/shop/" class="menu">SHOP</a></td>
+					
+
+					
+							<td>
+							
+							<a href="th:href="@{'/logout'}"" class="menu-backoffice"><img class="no-border" src="../images/agents-only.gif" alt="Agents Only Back Office"></a>
+						
+					</td>
+					
+				
+				</tr></tbody></table>
+				
+				</td></tr></tbody></table>
+				
+
+			</div>
+		</header>
+
+		<div id="body">
+
+			<section class="content-wrapper main-content clear-fix">
+				
+				
+<div class="description">
+<h2 align="center" th:text="'This page of user ' + ${agent.codeName}"></h2>
+<br>
+<div>
         <h2 th:text="'This page of user ' + ${agent.codeName}"></h2>
     </div>
     <div><a th:href="@{'/me/declassified/'}">I'm declassified(save me)</a></div>
-<div>
+
     <div th:if="${agent.status}">
         <div>Extremely dangerous message!!! If you see this message, then death is close)</div>
     </div>
     <div th:unless="${agent.status}">
         <div th:text=" 'Ok, ' + ${agent.codeName} + '. No need to worry'"></div>
     </div>
-</div>
-
-    <div>
-        <table>
-            <tr>
-                <th>Id</th>
-                <th>Name</th>
-                <th>Agent</th>
-                <th>Country</th>
-                <th colspan="2">Operations</th>
+<table width="100%" cellspacing="10" cellpadding="0" border="1" align="center" style="border-collapse: collapse;" >
+<tbody>
+<tr>
+           <tr>
+                <th>Ід</th>
+                <th width="300">Ім'я</th>
+                <th width="200">Агент</th>
+                <th width="200" >Країна</th>
+                <th colspan="2">Операції</th>
             </tr>
 
             <tr th:each="doc : ${myDocs}">
@@ -34,26 +92,30 @@ xmlns:sec="http://www.springframework.org/security/tags">
                 <td th:text="${doc.name}"/>
                 <td th:text="${doc.agentByAgentId.codeName}"/>
                 <td th:text="${doc.countryByCountryId.name}"/>
-                <td ><a th:href="@{'/stolendocs/delete/' + ${doc.id}}">Delete</a></td>
-                <td ><a th:href="@{'/stolendocs/edit/' + ${doc.id}}">Edit</a></td>
+                <td ><center><a th:href="@{'/stolendocs/delete/' + ${doc.id}}">Видалити</a></center></td>
+                <td ><center><a th:href="@{'/stolendocs/edit/' + ${doc.id}}">Редагувати</a></center></td>
             </tr>
+</tbody></table>
 
-        </table>
-    </div>
-    <div>
+<br>
+<br>
+<div>
         <div th:if="${param.staff8error}">
             <div>
                 You can`t to recruite ne staff, cause you have more than 8 staff. Please, remove one recruit from list and try again.
             </div>
         </div>
-        <table>
+		
+		<table width="100%" cellspacing="10" cellpadding="0" border="1" align="center" style="border-collapse: collapse;" >
+<tbody>
+<tr>
             <tr>
-                <th>Id</th>
-                <th>Name</th>
-                <th>Birthdate</th>
-                <th>Sex</th>
-                <th>Country</th>
-                <th colspan="2">Operations</th>
+                <th >Ід</th>
+                <th width="300">Ім'я</th>
+                <th width="150">Дата народження</th>
+                <th>Стать</th>
+                <th>Країна</th>
+                <th colspan="2">Операції</th>
             </tr>
 
             <tr th:each="staff : ${myStaffs}">
@@ -62,14 +124,36 @@ xmlns:sec="http://www.springframework.org/security/tags">
                 <td th:text="${staff.recruitedStaffByStaffId.date}"/>
                 <td th:text="${staff.recruitedStaffByStaffId.sex}"/>
                 <td th:text="${staff.recruitedStaffByStaffId.countryByCountryId.name}"/>
-                <td ><a th:href="@{'/me/deleteStaff/' + ${staff.id}}">Delete</a></td>
+                <td ><center><a th:href="@{'/me/deleteStaff/' + ${staff.id}}">Видалити</a></center></td>
             </tr>
-
-        </table>
-    </div>
-    <div sec:authorize="hasRole('ROLE_ADMIN')">
+</tbody></table>
+		<div sec:authorize="hasRole('ROLE_ADMIN')">
         This content is only shown to administrators.
         <!--Admin links-->
     </div>
 </body>
-</html>
+		
+
+
+			</section>
+
+		</div>
+		<footer>
+			<div class="content-wrapper">
+				
+					 <table width="100%" border="0"><tbody><tr><td><a href="http://www.perkley.com/privacy-policy" class="colorGreen" style="text-decoration:none;" title="Read Privacy Policy" target="_blank">Privacy Policy</a>  | <a href="http://www.perkley.com/terms-of-use/" class="footer" title="Terms of Use" target="_blank">Terms Of Use</a> | <a href="http://www.perkley.com/contact/" class="footer" title="Contact Us">Contact Us</a>  |  All rights reserved - Perkley, LLC. © 2012-2017</td>
+</tr></tbody></table>
+
+				
+			</div> 
+		</footer>
+    	
+	</div> 
+<img src="images/spacer.gif" width="1" height="10">
+    
+
+
+	
+
+<div role="log" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div>
+<div role="log" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div><div role="log" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div></body></html>
