@@ -35,7 +35,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .antMatchers("/stolendocs/**").access("hasRole('ROLE_ADMIN')")
                 .antMatchers("/countries/**").access("hasRole('ROLE_ADMIN')")
                 .antMatchers("/").permitAll()
-                .antMatchers("/templates/images/**").permitAll()
+                .antMatchers("/images/**").permitAll()
                 .antMatchers("/css/**").permitAll()
                 .anyRequest().authenticated()
                 .and()
