@@ -2,10 +2,10 @@
 <html xmlns:th="http://www.thymeleaf.org" lang="ua">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-	<title>Редагувати документ</title>
+    <title>Редагувати документ</title>
 
-	<link href="../css/shared.css" rel="stylesheet" type="text/css">
-	<link href="../css/Site.css" rel="stylesheet" type="text/css">
+    <link href="/css/shared.css" rel="stylesheet" type="text/css">
+    <link href="/css/Site.css" rel="stylesheet" type="text/css">
 
 
 </head>
@@ -14,117 +14,134 @@
 <br>
 <div class="box-wrapper">
 
-	<header>
-		<div class="content-wrapper">
-			<table width="100%" cellspacing="0" cellpadding="0" border="0">
-				<tbody><tr><td>
+    <header>
+        <div class="content-wrapper">
+            <table width="100%" cellspacing="0" cellpadding="0" border="0">
+                <tbody>
+                <tr>
+                    <td>
 
-					<table cellspacing="10" cellpadding="0" border="0"><tbody><tr><td>
-						<a href="http://www.perkley.com/"><img class="no-border" src="../images/log.gif" ></a></td>
-						<td> &nbsp;&nbsp;
+                        <table cellspacing="10" cellpadding="0" border="0">
+                            <tbody>
+                            <tr>
+                                <td>
+                                    <a href="http://www.perkley.com/"><img class="no-border" src="/images/log.gif"></a>
+                                </td>
+                                <td>
 
-						<td style="padding-left:20px;" class="logo-area"></td>
-
-
-
-					</tr></tbody></table>
-
-				</td><td align="right">
-
-
-
-					<table cellspacing="10" cellpadding="0" border="0">
+                                <td style="padding-left:20px;" class="logo-area"></td>
 
 
+                            </tr>
+                            </tbody>
+                        </table>
+
+                    </td>
+                    <td align="right">
 
 
-
-						<tbody><tr><td id="menutable" nowrap="nowrap"><a href="../me/mypage.html" class="menu">Моя сторінка</a></td>
-
+                        <table cellspacing="10" cellpadding="0" border="0">
 
 
-							<td>
+                            <tbody>
+                            <tr>
+                                <td id="menutable" nowrap="nowrap"><a href="/me" class="menu">Моя сторінка</a></td>
 
-								<a href="th:href="@{'/logout'}"" class="menu-backoffice"><img class="no-border" src="../images/agents-only.gif" alt="Agents Only Back Office"></a>
+                                <td>
 
-							</td>
+                                    <a href="th:href=" @{'/logout'}"" class="menu-backoffice"><img class="no-border"
+                                                                                                   src="/images/agents-only.gif"
+                                                                                                   alt="Agents Only Back Office"></a>
 
-
-						</tr></tbody></table>
-
-
-
-
-				</td></tr></tbody></table>
+                                </td>
 
 
-		</div>
-	</header>
-
-	<div id="body">
-
-		<section class="content-wrapper main-content clear-fix" >
-		<center>
-<form action="#" th:action="@{/stolendocs/edit/submit}" th:object="${item}" method="post" style="display:inline;" name="frmRegister" id="frmRegister" >
-	<table width="209" cellspacing="0" cellpadding="0" border="0" >
-	<tbody >
-	<h1>Редагувати документ</h1>
-	
-	 <p>
-            Ім'я
-            <input type="text" th:field="*{name}"/>
-        </p>
-
-        Агент
-        
-            <select th:field="*{agentByAgentId}">
-                <option th:each="agent : ${agents}" th:value="${agent.id}" th:text="${agent.codeName}"></option>
-            </select><br>
-        
-
-        Країна
-        
-            <select th:field="*{countryByCountryId}">
-                <option th:each="country : ${countries}" th:value="${country.id}" th:text="${country.name}"></option>
-            </select>
-        <br>
-        <button type="submit">Зберегти</button>
-	</tbody></table>
-
-	</form>
-</center>
-
-		</section>
+                            </tr>
+                            </tbody>
+                        </table>
 
 
-	</div>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
 
 
-	<footer>
-		<div class="content-wrapper">
+        </div>
+    </header>
 
-			<table width="100%" border="0">
-				<tbody>
-				<tr><td>
-					<a href="http://www.perkley.com/privacy-policy" class="colorGreen" style="text-decoration:none;" title="Read Privacy Policy" target="_blank">Privacy Policy</a>  |
-					<a href="http://www.perkley.com/terms-of-use/" class="footer" title="Terms of Use" target="_blank">Terms Of Use</a> |
-					<a href="https://www.perkley.com/contact/" class="footer" title="Contact Us">Contact Us</a>
-					|  All rights reserved - Perkley, LLC. © 2012-2017</td>
-				</tr></tbody></table>
+    <div id="body">
+
+        <section class="content-wrapper main-content clear-fix">
+            <center>
+                <form action="#" th:action="@{/stolendocs/edit/submit}" th:object="${item}" method="post"
+                      style="display:inline;" name="frmRegister" id="frmRegister">
+                    <table width="209" cellspacing="0" cellpadding="0" border="0">
+                        <tbody>
+                        <h1>Редагувати документ</h1>
+                        <input type="hidden" th:field="*{id}" th:value="${id}"/>
+                        <p>
+                            Ім'я
+                            <input type="text" th:field="*{name}"/>
+                        </p>
+
+                        Агент
+
+                        <select th:field="*{agentByAgentId}">
+                            <option th:each="agent : ${agents}" th:value="${agent.id}"
+                                    th:text="${agent.codeName}"></option>
+                        </select><br>
 
 
-		</div>
-	</footer>
+                        Країна
+
+                        <select th:field="*{countryByCountryId}">
+                            <option th:each="country : ${countries}" th:value="${country.id}"
+                                    th:text="${country.name}"></option>
+                        </select>
+                        <br>
+                        <button type="submit">Зберегти</button>
+                        </tbody>
+                    </table>
+
+                </form>
+            </center>
+
+        </section>
+
+
+    </div>
+
+
+    <footer>
+        <div class="content-wrapper">
+
+            <table width="100%" border="0">
+                <tbody>
+                <tr>
+                    <td>
+                        <a href="http://www.perkley.com/privacy-policy" class="colorGreen" style="text-decoration:none;"
+                           title="Read Privacy Policy" target="_blank">Privacy Policy</a> |
+                        <a href="http://www.perkley.com/terms-of-use/" class="footer" title="Terms of Use"
+                           target="_blank">Terms Of Use</a> |
+                        <a href="https://www.perkley.com/contact/" class="footer" title="Contact Us">Contact Us</a>
+                        | All rights reserved - Perkley, LLC. © 2012-2017
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+
+
+        </div>
+    </footer>
 
 </div>
 <img src="Perkley%20-%20Back%20Office_files/spacer.gif" width="1" height="10">
 
 
-
-
-
-
 <div role="log" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div>
 <div role="log" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div>
 <div role="log" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible">
-</div></body></html>
+</div>
+</body>
+</html>

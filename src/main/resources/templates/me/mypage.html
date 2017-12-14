@@ -7,8 +7,8 @@ xmlns:sec="http://www.springframework.org/security/tags">
 
 		<title>Приватна сторінка</title>
 		
-		<link href="../css/shared.css" rel="stylesheet" type="text/css">
-		<link href="../css/Site.css" rel="stylesheet" type="text/css">
+		<link href="/css/shared.css" rel="stylesheet" type="text/css">
+		<link href="/css/Site.css" rel="stylesheet" type="text/css">
 
 </head>
     <body>
@@ -35,13 +35,13 @@ xmlns:sec="http://www.springframework.org/security/tags">
 
 				<table cellspacing="10" cellpadding="0" border="0">
 
-                    <tbody><tr><td id="menutable" nowrap="nowrap"><a href="../me/mypage.html" class="menu">Моя сторінка</a></td>
+                    <tbody><tr><td id="menutable" nowrap="nowrap"><a href="/me" class="menu">Моя сторінка</a></td>
 
 
 
                         <td>
 
-                            <a href="th:href="@{'/logout'}"" class="menu-backoffice"><img class="no-border" src="../images/agents-only.gif" alt="Agents Only Back Office"></a>
+                            <a th:href="@{'/logout'}" class="menu-backoffice"><img class="no-border" src="../images/agents-only.gif" alt="Agents Only Back Office"></a>
 
                         </td>
 
@@ -75,7 +75,7 @@ xmlns:sec="http://www.springframework.org/security/tags">
     </div>
 <table width="100%" cellspacing="10" cellpadding="0" border="1" align="center" style="border-collapse: collapse;" >
 <tbody>
-<tr>
+
            <tr>
                 <th>Ід</th>
                 <th width="300">Ім'я</th>
@@ -95,42 +95,50 @@ xmlns:sec="http://www.springframework.org/security/tags">
 </tbody></table>
 
 <br>
-<br>
-<div>
-        <div th:if="${param.staff8error}">
-            <div>
-                You can`t to recruite ne staff, cause you have more than 8 staff. Please, remove one recruit from list and try again.
-            </div>
-        </div>
-		
-		<table width="100%" cellspacing="10" cellpadding="0" border="1" align="center" style="border-collapse: collapse;" >
-<tbody>
-<tr>
-            <tr>
-                <th >Ід</th>
-                <th width="300">Ім'я</th>
-                <th width="150">Дата народження</th>
-                <th>Стать</th>
-                <th>Країна</th>
-                <th colspan="2">Операції</th>
-            </tr>
 
-            <tr th:each="staff : ${myStaffs}">
-                <td th:text="${staff.recruitedStaffByStaffId.id}"/>
-                <td th:text="${staff.recruitedStaffByStaffId.name}"/>
-                <td th:text="${staff.recruitedStaffByStaffId.date}"/>
-                <td th:text="${staff.recruitedStaffByStaffId.sex}"/>
-                <td th:text="${staff.recruitedStaffByStaffId.countryByCountryId.name}"/>
-                <td ><center><a th:href="@{'/me/deleteStaff/' + ${staff.id}}">Видалити</a></center></td>
-            </tr>
-</tbody></table>
+    <table width="100%" cellspacing="10" cellpadding="0" border="1" align="center" style="border-collapse: collapse;" >
+        <tbody>
+
+        <tr>
+            <th >Ід</th>
+            <th width="300">Ім'я</th>
+            <th width="150">Дата народження</th>
+            <th>Стать</th>
+            <th>Країна</th>
+            <th >Операції</th>
+        </tr>
+
+        <tr th:each="staff : ${myStaffs}">
+            <td th:text="${staff.recruitedStaffByStaffId.id}"/>
+            <td th:text="${staff.recruitedStaffByStaffId.name}"/>
+            <td th:text="${staff.recruitedStaffByStaffId.date}"/>
+            <td th:text="${staff.recruitedStaffByStaffId.sex}"/>
+            <td th:text="${staff.recruitedStaffByStaffId.countryByCountryId.name}"/>
+            <td ><a th:href="@{'/me/deleteStaff/' + ${staff.id}}">Видалити</a></td>
+        </tr>
+        </tbody></table>
+
+
+    <div th:if="${param.staff8error}">
+        <div>
+            You can`t to recruite ne staff, cause you have more than 8 staff. Please, remove one recruit from list and try again.
+        </div>
+    </div>
+<br>
+
+
+
+
+		
+
 		<div sec:authorize="hasRole('ROLE_ADMIN')">
         This content is only shown to administrators.
         <!--Admin links-->
     </div>
-</body>
-		
 
+
+
+</div>
 
 			</section>
 
@@ -152,5 +160,4 @@ xmlns:sec="http://www.springframework.org/security/tags">
 
 	
 
-<div role="log" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div>
-<div role="log" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div><div role="log" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div></body></html>
+</body></html>
