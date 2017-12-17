@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.w3.org/1999/xhtml" lang="ua">
+<html xmlns:th="http://www.w3.org/1999/xhtml" xmlns:sec="http://www.w3.org/1999/xhtml" lang="ua">
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 	<title>Головна сторінка</title>
@@ -27,7 +27,7 @@
 				</td><td align="right">
 
 
-
+<div sec:authorize="isAuthenticated()">
 					<table cellspacing="10" cellpadding="0" border="0">
 
 
@@ -45,7 +45,7 @@
 							</td>
 
 
-						</tr></tbody></table>
+						</tr></tbody></table></div>
 
 
 
@@ -58,11 +58,12 @@
 
 	<div id="body">
 
-		<section class="content-wrapper main-content clear-fix" >
-	
-			<center><h1> <a th:href="@{'/login'}">Сторінка авторизації</a></h1></center>
-		</section>
+<div id="mainBk">
+		<section class="content-wrapper main-content clear-fix">
 
+			<center><a th:href="@{'/login'}"><img src="/images/mainlog.gif"></a></center>
+		</section>
+</div>
 
 	</div>
 

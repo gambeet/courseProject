@@ -67,7 +67,7 @@ xmlns:sec="http://www.springframework.org/security/tags">
 				
 				
 <div class="description">
-<h2 align="center" th:text="'This page of user ' + ${agent.codeName}"></h2>
+<h2 align="center" th:text="'Ця сторінка користувача ' + ${agent.codeName}"></h2>
 <br>
 
     <div><a th:href="@{'/me/declassified/'}">Мене викрили(врятуйте мене)</a></div>
@@ -76,7 +76,7 @@ xmlns:sec="http://www.springframework.org/security/tags">
         <div>Extremely dangerous message!!! If you see this message, then death is close)</div>
     </div>
     <div th:unless="${agent.status}">
-        <div th:text=" 'Ok, ' + ${agent.codeName} + '. No need to worry'"></div>
+        <div th:text=" 'Агенте, ' + ${agent.codeName} + '. Все добре не хвилюйтесь.'"></div>
     </div>
 <table width="100%" cellspacing="10" cellpadding="0" border="1" align="center" style="border-collapse: collapse;" >
 <tbody>
@@ -137,8 +137,11 @@ xmlns:sec="http://www.springframework.org/security/tags">
 		
 
 		<div sec:authorize="hasRole('ROLE_ADMIN')">
-        This content is only shown to administrators.
-        <!--Admin links-->
+        This content is only shown to administrators.<br>
+            <a th:href="@{'/agents'}">Робота з агентами</a>
+            <a th:href="@{'/countries'}">Робота з краінами</a>
+            <a th:href="@{'/recstaff'}">Робота з завербованим персоналом</a>
+            <a th:href="@{'/agents/top10'}">ТОП 10 агентів</a>
     </div>
 
 
